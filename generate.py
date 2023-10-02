@@ -24,7 +24,7 @@ if __name__ == '__main__':
     average = np.nanmean(table)
     table = np.nan_to_num(table, nan=average)
 
-    
+    #qw 
 
     # Save the completed table 
     np.save("output.npy", table) ## DO NOT CHANGE THIS LINE
