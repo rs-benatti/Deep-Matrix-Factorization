@@ -1,4 +1,5 @@
 import numpy as np
+from tqdm import tqdm, trange
 import os
 import argparse
 import deepMF2
