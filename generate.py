@@ -35,7 +35,7 @@ if __name__ == '__main__':
     model = deepMF2.ParallelLayersModel(input_size, hidden_size_row, hidden_size_col, encoded_dim)
     deepMF2.train_model(model, torch.FloatTensor(normalized_input_data))
     predicted = model(torch.FloatTensor(normalized_input_data), torch.FloatTensor(normalized_input_data).T)
-
+    predicted = predicted.detach().numpy()
     # Save the completed table 
     np.save("output.npy", predicted) ## DO NOT CHANGE THIS LINE
 
