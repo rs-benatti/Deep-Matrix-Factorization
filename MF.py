@@ -109,7 +109,6 @@ class MatrixFactorizarion:
                 for q in range(self.k):
                     gradient_iiq = self.calculate_gradient_iiq(i, q)
                     gradients_I[i, q] = gradient_iiq
-            self.I -= lr_I * gradients_I
             # Calculate gradients for U matrix
             num_items = self.R.shape[1]
             for j in range(num_items):
@@ -117,6 +116,7 @@ class MatrixFactorizarion:
                     gradient_ujq = self.calculate_gradient_ujq(j, q)
                     gradients_U[j, q] = gradient_ujq
             self.U -= lr_U * gradients_U
+            self.I -= lr_I * gradients_I
             '''
             for q in range(self.k):
                 for i in range(num_users):
