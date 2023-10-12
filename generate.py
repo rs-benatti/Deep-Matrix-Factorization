@@ -40,7 +40,8 @@ if __name__ == '__main__':
     optimizer = torch.optim.AdamW(model.parameters(), lr=0.001, weight_decay=0.0001)
     deepMF.train_model(model, optimizer, torch.FloatTensor(normalized_input_data), num_epochs=130)
     predicted = model(torch.FloatTensor(normalized_input_data), torch.FloatTensor(normalized_input_data).T) 
-    table = model.numpy_and_round(predicted)
+    #table = model.numpy_and_round(predicted)
+    table = predicted.detach().numpy() * 5
     # Save the completed table 
     np.save("output.npy", table) ## DO NOT CHANGE THIS LINE
 
